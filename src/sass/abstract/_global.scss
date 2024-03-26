@@ -1,0 +1,37 @@
+@use "./animations";
+@use "./vars" as *;
+@use "./functions" as *;
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  position: relative;
+  font-family: 'Lateef';
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: $bg-c;
+  color: white;
+  //make all buttons clickable
+  :is(h4, h5, h6):active {
+    animation: clickable 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  }
+}
+
+
+// div add by js
+
+//for minpulate price wrap and sell price wrap
+.hide {
+  transform: translateX(rem(400));
+}
+
+//move inputs holder
+.toUp {
+  transform: translateY(rem(-50));
+}
+
+

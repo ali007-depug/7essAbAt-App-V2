@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7essAbAt - حسابات</title>
+    <!-- mainfiest -->
+    <link rel="manifest" href="manifest.json">
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="stylesheet"
+          href="https://fonts.googleleapis.com/css2?family=Lateef:wght:200,300,400,500,600,700,800&display=swap">
+    <!-- fontAwesome -->
+    <link rel="stylesheet" href="./fontAwesome/all.min.css">
+    <!-- main css file -->
+    <link rel="stylesheet" href="./src/sass/style.css">
+
+</head>
+
+<body>
+    <!-- === overlay === -->
+    <div class="overlay"></div>
+    <!-- === End overlay === -->
+
+    <!-- === header === -->
+    <header role="banner">
+        <!-- app logo -->
+        <div class="appLogo">
+            <!-- <h1>7essAbAt</h1> -->
+            <img src="./assests/7essabat_app_logo.png" alt="app logo" width="90">
+        </div>
+        <!-- End app logo -->
+
+        <!-- date Holder -->
+        <div class="dateHolder">
+        </div>
+        <!-- End date Holder -->
+    </header>
+    <!-- === End header === -->
+
+    <!-- ===  inputs , buttons and calculator wrapper -->
+    <main role="main">
+        <!-- inputs with label -->
+        <div class="inputsHolder">
+            <div class="btnWrapper">
+                <h4 class="btnOpenSells" id="openSells" role="button" tabindex="0">نافذة المبيعات<i
+                       class="fa fa-sack-dollar"></i></h4>
+                <h4 class="btnCloseSells" id="closeSells" role="button" tabindex="0"> نافذة المتجر
+                    <i class="fa fa-shop"></i>
+                </h4>
+
+            </div>
+
+            <div class="catgWrap">
+                <input type="text" name="catg" id="catg"> <label for="catg">اسم المنتج</label>
+            </div>
+            <div class="numberwrap">
+                <input type="text" name="number" id="number"> <label for="number">العدد</label>
+            </div>
+            <div class="priceWrap">
+                <input type="text" name="price" id="price"> <label for="price">سعر الشراء </label>
+            </div>
+            <div class="sellPriceWrap">
+                <input type="text" name="sellPrice" id="sellPrice"><label for="sellPrice">سعر البيع</label>
+            </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttons">
+            <h4 class="btnAddToStack" id="addToStack" role="button" tabindex="0">إضافة إلى المتجر
+                <i class="fa-solid fa-cart-plus"></i>
+            </h4>
+            <h4 class="btnShowData" id="showData" role="button" tabindex="0">عرض المنتجات
+                <i class="fa-solid fa-eye"></i>
+            </h4>
+            <h4 class="btnHideData" id="hideData" role="button" tabindex="0">إخفاء المنتجات
+                <i class="fa-solid fa-eye-slash"></i>
+            </h4>
+
+            <!-- window 2 -->
+            <h4 class="btnUpdateStack" id="updateStack" role="button" tabindex="0">تحديث المتجر
+                <i class="fa fa-angles-up"></i>
+            </h4>
+            <h4 class="btnShowProfit" id="showProfit" role="button" tabindex="0">عرض الأرباح
+                <i class="fa-solid fa-dollar"></i>
+            </h4>
+            <h4 class="btnCalcProfit" id="calcProfit" role="button" tabindex="0">حساب الأرباح
+                <i class="fa fa-dollar"></i>
+            </h4>
+
+            <h4 class="btnZero" id="zero" role="button" tabindex="0">تصفير الأرباح</h4>
+            <!-- <h5>Empty inputs</h5> -->
+            <h6 class="btnEmptyStack" role="button" tabindex="0">حذف المنتجات
+                <i class="fa fa-trash"></i>
+            </h6>
+            <h4 class="btnCalc" role="button" tabindex="0" id="btnCalc">الحاسبة <i class="fa fa-calculator"></i></h4>
+        </div>
+        <!-- end buttons -->
+
+        <!-- Calculator -->
+        <div class="calc">
+            <!-- close calc -->
+            <span class="calc__btnClose red">X</span>
+            <!-- for result -->
+            <div class="calc__result"></div>
+            <!-- buttons -->
+            <div class="calc__buttons grid">
+                <!-- numbers -->
+                <div class="calc__numbers subgrid">
+                    <div class="number">7</div>
+                    <div class="number ">8</div>
+                    <div class="number">9</div>
+                    <div class="number">4</div>
+                    <div class="number">5</div>
+                    <div class="number">6</div>
+                    <div class="number">1</div>
+                    <div class="number">3</div>
+                    <div class="number">2</div>
+                    <div class="number">0</div>
+                    <div class="number">.</div>
+                </div>
+                <!-- top panel -->
+                <div class="calc__op top-panel">
+                    <div class="clear red">C</div>
+                    <div class="remove green col4"><i class="fa-solid fa-delete-left"></i></div>
+                </div>
+                <!-- right panel -->
+                <div class="calc__op right-panel">
+                    <div class=" plus green ">+</div>
+                    <div class=" minus green">-</div>
+                    <div class=" mul ">*</div>
+                    <div class=" div">/</div>
+                </div>
+                <div class="equal  green ">=</div>
+
+                <!-- <div class="parent op   ju-s green">()</div> -->
+
+            </div>
+        </div>
+        <!-- end Calculator -->
+    </main>
+    <!-- === main  wrapper === -->
+
+    <!-- === data wrapper === -->
+    <div class="data">
+    </div>
+    <!-- === end data wrapper === -->
+
+    <!-- === popup === -->
+    <div class="popup">
+    </div>
+    <!-- End popup -->
+
+    <!-- footer -->
+    <footer role="contentinfo">
+        <span>Find Me On : </span>
+        <div class="about">
+            <a href="https://www.linkedin.com/in/ali-abdelbagi-02313b223/" target="_blank" title="LinkedIn"><i
+                   class="fa-brands fa-linkedin"></i></a>
+            <a href="https://web.facebook.com/ali.abdelbagiali.3" target="_blank" title="Facebook"><i
+                   class="fa-brands fa-facebook"></i></a>
+            <a href="https://telegram.me/AliAbdElbagi" target="_blank" title="X"><i
+                   class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://github.com/ali007-depug" target="_blank" title="Githup"><i
+                   class="fa-brands fa-github"></i></a>
+            <a href="https://codepen.io/ali007-depug" target="_blank" title="CodePen"><i
+                   class="fa-brands fa-codepen"></i></a>
+        </div>
+    </footer>
+    <!-- end footer -->
+
+    <!-- &&& js scripts &&& -->
+    <script type="module" src="./src/app.js"></script>
+    <script type="module" src="./src/calc.js"></script>
+    <!-- &&& end js scripts &&& -->
+</body>
+
+</html>

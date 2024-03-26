@@ -1,0 +1,16 @@
+@use "../abstract/" as*;
+// style footer 
+footer {
+  display: flex;
+  position: relative;
+  bottom: rem(-120);
+  .about {
+    // background-color: #333;
+    border-radius: rem(20);
+    padding-inline:rem(5);
+    i{
+      color: white;
+    }
+  }
+
+}

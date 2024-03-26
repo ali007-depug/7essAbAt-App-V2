@@ -1,0 +1,202 @@
+@use "../abstract/" as *;
+
+// style main
+main {
+  display: flex;
+  flex-direction: column;
+  margin-top: rem(70);
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 2rem;
+  padding: rem(20);
+  margin-inline: rem(10);
+  border: rem(1) solid white;
+  border-radius: rem(8);
+  background-color: $Very-Dark-Purble;
+  width: min(90%, rem(650));
+}
+// end style main
+
+// style inputs holder
+  .inputsHolder {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5rem;
+    overflow: hidden;
+    min-height: rem(120);
+    position: relative;
+    direction: ltr;
+
+    .btnWrapper {
+      position: relative;
+      cursor: pointer;
+      direction: rtl;
+      max-width: rem(110);
+      text-align: center;
+      // background: $profit-c;
+      h4 {
+        display:flex;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-block:rem(8);
+        padding-inline-start: rem(10);
+        // border: 1rem() solid white;
+        border-radius: rem(7);
+        border-bottom: 0;
+        border-top: 0;
+        border-left: 0;
+      box-shadow: rem(1) rem(1) rem(2) $Sky;
+transition: 0.3s;
+
+      }
+
+      #openSells {
+        background-color: #31b91e5e;
+        &:hover {
+          background-color: #31b91e;
+        }
+      }
+
+      #closeSells {
+        display: none;
+        background-color: $stack-c;
+        color: white !important;
+        &:hover {
+          background-color: $stack-hover;
+        }
+      }
+
+      // style icons 
+      i{
+        // border-top-right-radius: 10rem();
+  font-size: rem(18);
+      }
+    }
+    //select all divs that hold inputs and their labels
+    > :not(:first-child) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: rem(30);
+      gap: 1rem;
+      font-size: rem(18);
+      padding-inline-start: rem(10);
+      // border-left: 1rem() solid;
+      transition: all 0.3s;
+      position: relative;
+    }
+    > :not(:first-child) ::before {
+      content: "";
+      position: absolute;
+      width: rem(1);
+      height:rem(30);
+      left: 0;
+      background-color: $Sky;
+    }
+    input[type="text"]:focus {
+      outline: $Sky solid rem(2);
+    }
+
+    input[type="text"] {
+      height: rem(25);
+      width: 60%;
+      // width:max(60%,150rem());
+
+      direction: rtl;
+      text-align: center;
+      font-weight: bold;
+    }
+    label {
+      // font-size: clamp(17rem(), 4vw, 20rem());
+      font-size: rem(21);
+      font-weight:700;
+      color: white;
+    }
+  }
+  // end style inputs holder
+
+  // style buttons
+  .buttons {
+    display: flex;
+    flex-flow: row wrap;
+    direction: rtl;
+    gap: 1rem;
+    @include breakpoint-up(md) {
+      padding-inline:rem(15);
+      gap: 1.5rem;
+    }
+    text-transform: capitalize;
+    font-size: rem(18);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    //select all buttons
+    > * {
+      cursor: pointer;
+      box-shadow: rem(1) rem(1) rem(0.5) $Sky;
+      border-radius: rem(3);
+      padding: rem(10) rem(5);
+      transition: 0.3s;
+      flex: 1 1 max(31%, rem(110)); //for responsive
+      align-self: center;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    //style buttons in groubing
+    #addToStack,
+    #updateStack {
+      background-color: $stack-c;
+      &:hover {
+        background-color: $stack-hover;
+      }
+    }
+    #showProfit,
+    #calcProfit {
+      background-color: $profit-c;
+      &:hover {
+        background-color: $profit-hover;
+      }
+    }
+    #showData,
+    #hideData {
+      background-color: $show-data-c;
+      &:hover {
+        background-color: $show-data-hover;
+      }
+    }
+    
+    #zero {
+      background-color: rgba(255, 255, 255, 0.361);
+      color: black;
+      &:hover {
+        background-color: rgba(255, 255, 255);
+      }
+    }
+
+    h6 {
+      background-color: rgb(72, 16, 16);
+      color: white !important;
+      &:hover {
+        background-color: rgba(187, 8, 8);
+      }
+    }
+    .btnCalc {
+      background-color: #1ca046a8;
+      &:hover {
+        background-color: #31b91e;
+      }
+    }
+    // ==== set default styles =====
+    .btnCalcProfit,
+    .btnHideData,
+    .btnUpdateStack {
+      display: none;
+    }
+
+    // style all icons on buttons
+    i {
+      margin-inline-start: rem(15);
+    }
+  }
+// end style buttons

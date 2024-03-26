@@ -1,0 +1,9 @@
+@use "./layout/header";
+@use "./layout/main";
+@use "./layout/data";
+@use "./layout/overlay";
+@use "./layout/about";
+@use "./layout/popups";
+@use "./abstract/"as*;
+@use "./components/Calc/calc";
+@use "./components/Calc/grid";

@@ -1,0 +1,36 @@
+@use "../abstract/" as *;
+
+// style Header
+  header {
+    width: 90%;
+    height: rem(90);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block-end: 0.8rem;
+  }
+  // end style header wrapper
+
+  // style app logo
+    .appLogo{
+      height: 100%;
+      img{
+        width: rem(70);
+        height: inherit;
+        object-fit: contain;
+      }
+    }
+    // end style app logo
+
+    // style date wrapper
+    .dateHolder {
+      //this is span is created by js and hold [10-dec-2023]
+      span {
+        padding: rem(10);
+        // border-top: 2rem() dotted #333;
+        border-bottom: rem(2) solid white;
+        border-radius: rem(5);
+        font-size: clamp(rem(11), 2vw, rem(14));
+      }
+    }
+  // end style date wrapper
