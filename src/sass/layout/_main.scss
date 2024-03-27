@@ -96,7 +96,7 @@ transition: 0.3s;
       background-color: $Sky;
     }
     input[type="text"]:focus {
-      outline: $Sky solid rem(2);
+      outline: #1ca046a8 solid rem(2);
     }
 
     input[type="text"] {
@@ -107,6 +107,8 @@ transition: 0.3s;
       direction: rtl;
       text-align: center;
       font-weight: bold;
+      background-color: white;
+      border-radius: 3px;
     }
     label {
       // font-size: clamp(17rem(), 4vw, 20rem());

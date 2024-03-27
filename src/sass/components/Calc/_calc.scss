@@ -1,8 +1,8 @@
 @use "../../abstract/" as *;
 .calc {
   display: none;
-  width: min(63%, 340px);
-  position: absolute;
+  width: min(70%, 340px);
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -31,8 +31,6 @@
     font-size: 2rem;
   }
 
-  &__buttons {
-  }
   &__numbers {
     margin-top: 20px;
     font-size: 20px;

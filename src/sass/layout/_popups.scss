@@ -4,7 +4,7 @@
   direction: rtl;
   visibility: hidden;
   opacity: 0;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -61,7 +61,8 @@
     background-color: red;
   }
   .no{
-    background-color: $profit-c;
+    // background-color: $profit-c;
+    border-color: #04ff04;
   }
 }
 
