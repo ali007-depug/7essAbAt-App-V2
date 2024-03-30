@@ -346,6 +346,9 @@ footer .about {
 }
 footer .about i {
   color: white;
+  background-color: hsla(292, 19%, 15%, 0.678);
+  padding: 0.3125rem;
+  border-radius: 1.25rem;
 }
 
 .popup {

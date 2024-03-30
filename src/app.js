@@ -482,7 +482,7 @@ function addItemsToPage(oldInputs) {
       // === info icon ====
       let info = document.createElement("i");
       info.className = "fa fa-info";
-      info.title = "information"
+      info.title = "information";
       let infoWrapper = document.createElement("span");
       infoWrapper.className = "info";
       infoWrapper.appendChild(info);
@@ -628,8 +628,7 @@ function handelProfits(oldInputs) {
           emptyInputs(inputs);
           data.innerHTML = "";
           data.style.display = "flex";
-    data.classList.add("addBorder");
-
+          data.classList.add("addBorder");
 
           const updateMessage = document.createElement("span");
           updateMessage.className = "updateMessage";
@@ -640,25 +639,27 @@ function handelProfits(oldInputs) {
           updateMessage.appendChild(updateMessageIcon);
           data.appendChild(updateMessage);
         }
-      
+
         // if it's matched but it's number equal to zero then show an error meesage
         else {
           data.innerHTML = "";
           data.style.display = "flex";
           data.classList.add("addBorder");
-          data.appendChild(document.createTextNode("عذراً، هذا العنصر لديك صفر"));
+          data.appendChild(
+            document.createTextNode("عذراً، هذا العنصر لديك صفر")
+          );
         }
-    
-      }
-      else {
+      } else {
         console.log("not work");
         data.innerHTML = "";
-      data.style.display = "flex";
-      data.classList.add("addBorder");
-      data.appendChild(
-        document.createTextNode(`عذراً،العناصر في المتجر أقل من (${number.value})`)
-      );
-    }
+        data.style.display = "flex";
+        data.classList.add("addBorder");
+        data.appendChild(
+          document.createTextNode(
+            `عذراً،العناصر في المتجر أقل من (${number.value})`
+          )
+        );
+      }
     }
     // if there is not match ever
     else {
@@ -677,7 +678,7 @@ function handelProfits(oldInputs) {
     data.style.display = "flex";
     data.classList.add("addBorder");
     data.appendChild(document.createTextNode("لا توجد بيانات"));
-      }
+  }
   addDataTols("data", arrOfItems);
 }
 
@@ -737,7 +738,6 @@ function showDate(container) {
 
   container.appendChild(span);
 }
-
 
 /**
  * ==== function for popup when user click on set profit to zero =====
@@ -807,8 +807,6 @@ function setProfitToZeroPopup() {
     } else e.target.classList.remove("btnGreen");
   });
 }
-
-
 
 // ==== event to set all item's profit to zero ====
 /**
@@ -889,7 +887,7 @@ function EmptyStackPopup() {
  * ==== The function below for ====
  * checking if the input value contain number.
  * usage : to prevent 'add to stack' function if user insert char in numeric field
- * 
+ *
  * the checking process is done by RegExp
  * @param {string} inputValue
  * @returns {boolean} if it's numbers
@@ -926,7 +924,6 @@ function findFalse(numberValue, priceValue, sellPriceValue) {
   }
   return falses;
 }
-
 
 /**
  * ===== info popup function =====
