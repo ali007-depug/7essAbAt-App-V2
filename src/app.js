@@ -610,7 +610,7 @@ function handelProfits(oldInputs) {
     // === if there is match ===
     if (matchIndex !== -1) {
       // check if the number value is not greater than data on ls
-      if (number.value <= oldInputs[matchIndex].number) {
+      if (+number.value <= +oldInputs[matchIndex].number) {
         if (oldInputs[matchIndex].number !== 0) {
           console.log("exist and not = 0");
           // === substract the number of items ===
