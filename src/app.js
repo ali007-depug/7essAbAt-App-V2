@@ -84,6 +84,8 @@ if (getDataFromls("data")) {
 // ===== get data from local storage =====
 getDataFromls("data");
 
+goodsPriceWrapper.innerHTML = calcAllGoodPrices();
+
 /**
  * ===== remove item when click on trash icon =====
  * ===== And :
@@ -98,6 +100,8 @@ data.addEventListener("click", (e) => {
 
     removeItemWith(itemId, getDataFromls("data"));
     e.target.parentElement.parentElement.parentElement.remove();
+    // update good price
+    goodsPriceWrapper.innerHTML = calcAllGoodPrices();
   }
 
   // === when user click on info icon , invoke infoPopup function ===
@@ -118,6 +122,8 @@ emptyStackButton.addEventListener("click", () => {
   if (oldInputs) {
     EmptyStackPopup();
     emptyInputs(inputs);
+    // update good price
+    goodsPriceWrapper.innerHTML = calcAllGoodPrices();
   } else {
     data.innerHTML = "";
     data.style.display = "flex";
@@ -172,6 +178,9 @@ addToStackButton.addEventListener("click", () => {
       data.appendChild(updateMessage);
 
       data.appendChild(updateMessage);
+
+      // update good price
+      goodsPriceWrapper.innerHTML = calcAllGoodPrices();
     }
 
     //if it's not number then :
@@ -351,7 +360,7 @@ function calcAllProfits(oldInputs, message) {
     data.classList.add("addBorder");
 
     let span = document.createElement("span");
-    let theProfit = document.createTextNode(`${message} : ${res} جنيه سوداني`);
+    let theProfit = document.createTextNode(`${message} : ${res.toLocaleString()} جنيه سوداني`);
     span.appendChild(theProfit);
     data.appendChild(span);
   } else data.innerHTML = "";
@@ -581,6 +590,7 @@ updateStack.onclick = function () {
     // if one of items == zero then don't
 
     handelProfits(getDataFromls("data"));
+    
   } else {
     data.innerHTML = "";
     data.style.display = "flex";
@@ -641,6 +651,8 @@ function handelProfits(oldInputs) {
           updateMessage.appendChild(updateMessageText);
           updateMessage.appendChild(updateMessageIcon);
           data.appendChild(updateMessage);
+
+         
         }
 
         // if it's matched but it's number equal to zero then show an error meesage
@@ -683,6 +695,10 @@ function handelProfits(oldInputs) {
     data.appendChild(document.createTextNode("لا توجد بيانات"));
   }
   addDataTols("data", arrOfItems);
+
+  console.log(calcAllGoodPrices())
+  goodsPriceWrapper.innerHTML = calcAllGoodPrices();
+
 }
 
 /**
@@ -1015,24 +1031,22 @@ function infoPopup(itemName, itemNumber, modifiedTime, soldItem) {
 function calcAllGoodPrices() {
   let data = getDataFromls("data");
 
-  let filteredArray = []
-  let mapThroughData = data.map((ele)=>{
-    if(ele.number !== 0){
-    filteredArray.push(ele)
+  let filteredArray = [];
+  let mapThroughData = data.map((ele) => {
+    if (ele.number !== 0) {
+      filteredArray.push(ele);
     }
     return filteredArray;
-  })
+  });
 
   let allMoney = filteredArray.reduce((curr, acc) => {
-    let result = +curr + (+acc.price * +acc.number);
+    let result = +curr + +acc.price * +acc.number;
     return result;
   }, 0);
 
   return allMoney.toLocaleString();
 }
 calcAllGoodPrices();
-
-goodsPriceWrapper.innerHTML = calcAllGoodPrices();
 
 // toggle good price via eye icon button
 
