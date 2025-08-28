@@ -125,10 +125,7 @@ transition: 0.3s;
     flex-flow: row wrap;
     direction: rtl;
     gap: 1rem;
-    @include breakpoint-up(md) {
-      padding-inline:rem(15);
-      gap: 1.5rem;
-    }
+    
     text-transform: capitalize;
     font-size: rem(18);
     transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
@@ -199,6 +196,10 @@ transition: 0.3s;
     // style all icons on buttons
     i {
       margin-inline-start: rem(15);
+    }
+    @include breakpoint-up(md) {
+      padding-inline:rem(15);
+      gap: 1.5rem;
     }
   }
 // end style buttons

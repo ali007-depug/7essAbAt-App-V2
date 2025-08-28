@@ -8,9 +8,6 @@
   margin-block-start: 1.5rem;
   margin-inline:rem(15);
   text-align: center;
-  @include breakpoint-up(md){
-    margin-inline: 0;
-  }
   padding: rem(15);
   font-size: clamp(rem(15), 4vw, rem(18));
   border-radius: rem(10);
@@ -20,6 +17,10 @@
   width: min(90%,rem(650));
   &.addBorder {
     border: rem(2) solid;
+  }
+
+  @include breakpoint-up(md){
+    margin-inline: 0;
   }
 }
 // end style data wrapper
