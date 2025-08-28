@@ -1025,10 +1025,10 @@ function calcAllGoodPrices() {
 
   let allMoney = filteredArray.reduce((curr, acc) => {
     let result = +curr + (+acc.price * +acc.number);
-    return result.toLocaleString();
+    return result;
   }, 0);
 
-  return allMoney;
+  return allMoney.toLocaleString();
 }
 calcAllGoodPrices();
 
