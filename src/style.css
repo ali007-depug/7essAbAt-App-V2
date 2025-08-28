@@ -89,15 +89,15 @@ main {
   position: relative;
   cursor: pointer;
   direction: rtl;
-  max-width: 6.875rem;
+  max-width: 9.375rem;
   text-align: center;
 }
 .inputsHolder .btnWrapper h4 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   padding-block: 0.5rem;
-  padding-inline-start: 0.625rem;
+  padding-inline: 0.625rem;
   border-radius: 0.4375rem;
   border-bottom: 0;
   border-top: 0;
@@ -145,7 +145,7 @@ main {
   outline: rgba(28, 160, 70, 0.6588235294) solid 0.125rem;
 }
 .inputsHolder input[type=text] {
-  height: 1.5625rem;
+  height: 1.875rem;
   width: 60%;
   direction: rtl;
   text-align: center;
@@ -167,12 +167,6 @@ main {
   text-transform: capitalize;
   font-size: 1.125rem;
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-@media (min-width: 768px) {
-  .buttons {
-    padding-inline: 0.9375rem;
-    gap: 1.5rem;
-  }
 }
 .buttons > * {
   cursor: pointer;
@@ -238,6 +232,49 @@ main {
 .buttons i {
   margin-inline-start: 0.9375rem;
 }
+@media (min-width: 768px) {
+  .buttons {
+    padding-inline: 0.9375rem;
+    gap: 1.5rem;
+  }
+}
+
+.allMoney {
+  display: flex;
+  gap: 10px;
+  font-weight: bold;
+}
+.allMoney .allMoney__goodsPrice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-direction: rtl;
+}
+.allMoney .allMoney__actualGoodsPrice {
+  color: rgb(34, 109, 34);
+  min-width: 3.125rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  background-color: white;
+  padding: 3px;
+  border-radius: 5px;
+}
+.allMoney button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.allMoney button i {
+  font-size: 1.25rem;
+  padding: 0.375rem;
+  background-color: beige;
+  border-radius: 0.5rem;
+  display: block;
+}
+.allMoney button i:hover {
+  background-color: rgb(253, 253, 190);
+}
 
 .data {
   display: none;
@@ -254,13 +291,13 @@ main {
   background-color: hsl(292, 20%, 15%);
   width: min(90%, 40.625rem);
 }
+.data.addBorder {
+  border: 0.125rem solid;
+}
 @media (min-width: 768px) {
   .data {
     margin-inline: 0;
   }
-}
-.data.addBorder {
-  border: 0.125rem solid;
 }
 
 .item {

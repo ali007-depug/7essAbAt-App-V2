@@ -33,16 +33,15 @@ main {
       position: relative;
       cursor: pointer;
       direction: rtl;
-      max-width: rem(110);
+      max-width: rem(150);
       text-align: center;
       // background: $profit-c;
       h4 {
         display:flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
         padding-block:rem(8);
-        padding-inline-start: rem(10);
-        // border: 1rem() solid white;
+        padding-inline: rem(10);
         border-radius: rem(7);
         border-bottom: 0;
         border-top: 0;
@@ -83,7 +82,6 @@ transition: 0.3s;
       gap: 1rem;
       font-size: rem(18);
       padding-inline-start: rem(10);
-      // border-left: 1rem() solid;
       transition: all 0.3s;
       position: relative;
     }
@@ -100,7 +98,7 @@ transition: 0.3s;
     }
 
     input[type="text"] {
-      height: rem(25);
+      height: rem(30);
       width: 60%;
       // width:max(60%,150rem());
 
@@ -203,3 +201,44 @@ transition: 0.3s;
     }
   }
 // end style buttons
+
+
+// style رأس المال
+.allMoney{
+display: flex;
+gap: 10px;
+font-weight: bold;
+  .allMoney__goodsPrice{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: rtl;
+  }
+  .allMoney__actualGoodsPrice{
+    color: rgb(34, 109, 34);
+    min-width: rem(50);
+    text-align: center;
+    font-weight: bold;
+    font-size: rem(18);
+    background-color: white;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  // eye icon
+  button{
+    background: none;
+    border: none;
+    cursor: pointer;
+    i{
+      font-size: rem(20);
+      padding: rem(6);
+      background-color: beige;
+      border-radius: rem(8);
+      display: block;
+      &:hover{
+        background-color: rgb(253, 253, 190);
+      }
+    }
+  }
+}

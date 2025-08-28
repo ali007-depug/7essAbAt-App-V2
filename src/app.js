@@ -53,6 +53,9 @@ const allOperations = document.querySelectorAll(".right-panel div");
 const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 
+const goodsPriceWrapper = document.querySelector(".allMoney__actualGoodsPrice");
+const allMoneyIcon = document.querySelector(".allMoeny__eyeIcon");
+
 // ===== register the service worker =====
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
@@ -1008,6 +1011,45 @@ function infoPopup(itemName, itemNumber, modifiedTime, soldItem) {
   };
 }
 
+// func to calc all goods price
+function calcAllGoodPrices() {
+  let data = getDataFromls("data");
+
+  let filteredArray = []
+  let mapThroughData = data.map((ele)=>{
+    if(ele.number !== 0){
+    filteredArray.push(ele)
+    }
+    return filteredArray;
+  })
+
+  let allMoney = filteredArray.reduce((curr, acc) => {
+    let result = +curr + +acc.price;
+    return result;
+  }, 0);
+
+  return allMoney;
+}
+calcAllGoodPrices();
+
+goodsPriceWrapper.innerHTML = calcAllGoodPrices();
+
+// toggle good price via eye icon button
+
+allMoneyIcon.addEventListener("click", (e) => {
+  console.log("eye icon clicked");
+
+  // hide the eye icon + goods price
+  if (e.target.className === "fa fa-eye") {
+    const icon = document.querySelector("#eye");
+    icon.className = "fa fa-eye-slash";
+    goodsPriceWrapper.innerHTML = "*****";
+  } else {
+    const icon = document.querySelector("#eye");
+    icon.className = "fa fa-eye";
+    goodsPriceWrapper.innerHTML = calcAllGoodPrices();
+  }
+});
 /**
  * ======= Calc module =========
  *
