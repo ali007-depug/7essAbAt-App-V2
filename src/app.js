@@ -29,7 +29,7 @@ const hideDataButton = document.querySelector("#hideData");
 const openSellsButton = document.querySelector("#openSells");
 const closeSellsButton = document.querySelector("#closeSells");
 const updateStack = document.querySelector("#updateStack");
-const emptyStackButton = document.querySelector("h6");
+const emptyStackButton = document.querySelector(".btnEmptyStack");
 const clearProfit = document.querySelector("#zero");
 const btnCalc = document.querySelector("#btnCalc");
 
@@ -53,8 +53,12 @@ const allOperations = document.querySelectorAll(".right-panel div");
 const overlay = document.querySelector(".overlay");
 const popup = document.querySelector(".popup");
 
+// رأس المال items
 const goodsPriceWrapper = document.querySelector(".allMoney__actualGoodsPrice");
 const allMoneyIcon = document.querySelector(".allMoeny__eyeIcon");
+
+// info
+const infoWrapper = document.querySelector(".guideInfo")
 
 // ===== register the service worker =====
 if ("serviceWorker" in navigator) {
@@ -413,7 +417,7 @@ calcProfitButton.onclick = function () {
     showDataButton.style.display = "flex";
   }
   if (getDataFromls("data"))
-    calcAllProfits(getDataFromls("data"), "أرباح اليوم هي  ");
+    calcAllProfits(getDataFromls("data"), "الأرباح حتى اللحظة هي  ");
   else {
     data.innerHTML = "";
     data.style.display = "flex";
@@ -554,6 +558,9 @@ openSellsButton.onclick = function () {
   calcProfitButton.style.display = "flex";
   //change poistion for one buttons
   updateStack.style.order = "-1";
+
+  // show info
+  infoWrapper.classList.toggle("showInfo")
 };
 
 //when click on close sells ==> minpulate other buttons
@@ -569,6 +576,9 @@ closeSellsButton.onclick = function () {
   showProfitButton.style.display = "flex";
   openSellsButton.style.display = "flex";
   addToStackButton.style.display = "flex";
+
+  infoWrapper.classList.toggle("showInfo")
+  
 };
 
 /**

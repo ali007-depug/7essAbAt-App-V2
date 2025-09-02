@@ -73,19 +73,29 @@
         </div>
         <div class="numberwrap">
           <input type="number" name="number" id="number" />
-          <label for="number">العدد</label>
+          <label for="number">عدد المنتج</label>
         </div>
         <div class="priceWrap">
           <input type="number" name="price" id="price" />
-          <label for="price">سعر الشراء </label>
+          <label for="price">سعر الشراء
+          <span>للمنتج الواحد</span>  
+          </label>
         </div>
         <div class="sellPriceWrap">
           <input type="number" name="sellPrice" id="sellPrice" /><label
             for="sellPrice"
-            >سعر البيع</label
+            >سعر البيع
+          <span>للمنتج الواحد</span>  
+            
+            </label
           >
         </div>
       </div>
+
+        <div class="guideInfo">
+          <p>عدد المنتج = عدد القطع التي تم بيعها من هذا المنتج</p>
+          <i class="fa fa-info"></i>
+        </div>
 
       <!-- buttons -->
       <div class="buttons">
@@ -120,10 +130,10 @@
           تصفير الأرباح
         </h4>
         <!-- <h5>Empty inputs</h5> -->
-        <h6 class="btnEmptyStack" role="button" tabindex="0">
+        <h4 class="btnEmptyStack" role="button" tabindex="0">
           حذف المنتجات
           <i class="fa fa-trash"></i>
-        </h6>
+        </h4>
         <h4 class="btnCalc" role="button" tabindex="0" id="btnCalc">
           الحاسبة <i class="fa fa-calculator"></i>
         </h4>

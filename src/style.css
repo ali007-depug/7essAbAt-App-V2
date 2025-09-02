@@ -144,7 +144,8 @@ main {
 .inputsHolder input[type=text]:focus {
   outline: rgba(28, 160, 70, 0.6588235294) solid 0.125rem;
 }
-.inputsHolder input[type=text], .inputsHolder input[type=number] {
+.inputsHolder input[type=text],
+.inputsHolder input[type=number] {
   height: 1.875rem;
   width: 60%;
   direction: rtl;
@@ -157,6 +158,27 @@ main {
   font-size: 1.3125rem;
   font-weight: 700;
   color: white;
+  width: 150px;
+  text-align: center;
+}
+.inputsHolder label:has(span) {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+}
+@media (max-width: 524px) {
+  .inputsHolder label:has(span) {
+    flex-direction: column;
+  }
+}
+.inputsHolder label:has(span) span {
+  font-size: 0.75rem;
+  color: gray;
+}
+@media (min-width: 525px) {
+  .inputsHolder label:has(span) span {
+    order: -1;
+  }
 }
 
 .buttons {
@@ -211,11 +233,11 @@ main {
 .buttons #zero:hover {
   background-color: rgb(255, 255, 255);
 }
-.buttons h6 {
+.buttons h4 {
   background-color: rgb(72, 16, 16);
   color: white !important;
 }
-.buttons h6:hover {
+.buttons h4:hover {
   background-color: rgb(187, 8, 8);
 }
 .buttons .btnCalc {
@@ -274,6 +296,37 @@ main {
 }
 .allMoney button i:hover {
   background-color: rgb(253, 253, 190);
+}
+
+.guideInfo {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.guideInfo i {
+  background-color: rgb(70, 157, 70);
+  border-radius: 5px;
+  padding-block: 5px;
+  padding-inline: 10px;
+}
+.guideInfo p {
+  color: #f4aeba;
+  font-weight: bold;
+  font-size: 1.4375rem;
+}
+@media (max-width: 524px) {
+  .guideInfo p {
+    font-size: 1.0625rem;
+  }
+}
+.guideInfo.showInfo {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-70px);
 }
 
 .data {
