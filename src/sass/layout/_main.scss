@@ -97,11 +97,12 @@ transition: 0.3s;
       outline: #1ca046a8 solid rem(2);
     }
 
-    input[type="text"] {
+    
+    input[type="text"], input[type="number"] {
       height: rem(30);
       width: 60%;
       // width:max(60%,150rem());
-
+      
       direction: rtl;
       text-align: center;
       font-weight: bold;

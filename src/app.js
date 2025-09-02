@@ -69,7 +69,6 @@ if ("serviceWorker" in navigator) {
 }
 // ===== store 4 inputs in array =====
 let inputs = [catg, number, price, sellPrice];
-
 // ===== array of items,which contain objects that holds data about item =====
 let arrOfItems = [];
 
@@ -211,6 +210,21 @@ addToStackButton.addEventListener("click", () => {
     );
   }
 });
+
+// format the price and sell price number
+price.addEventListener("input",(e)=>{
+  // e.target.value = formatNumber(e.target.value).trim()
+})
+
+// function to format the number
+function formatNumber(number){
+  // check if it's only number
+  const digitsOnly = number.replace(/[^\d]/g, '');
+    
+    if (!digitsOnly) return '';
+    
+  return parseInt(digitsOnly,10).toLocaleString()
+}
 
 /**
  * === function to handel inputs ===
@@ -445,33 +459,26 @@ function addItemsToPage(oldInputs) {
       let itemIndexWrapper = document.createElement("span");
       itemIndexWrapper.appendChild(itemIndex);
 
-      // let itemName = document.createTextNode(` Name : ${item.catName} `);
       let itemName = document.createTextNode(`الاسم : ${item.catName} `);
-      // let someicon = document.createElement("i");
-      // someicon.className = "fa fa-shop";
       let itemNameWrapper = document.createElement("span");
       itemNameWrapper.appendChild(itemName);
-      // itemNameWrapper.appendChild(someicon)
-
-      // let itemNumber = document.createTextNode(`- Number : ${item.number} `);
-      let itemNumber = document.createTextNode(`- العدد :  ${item.number}`);
+      let itemNumber = document.createTextNode(`- العدد :  ${Number(item.number).toLocaleString()}`);
       let itemNumberWrapper = document.createElement("span");
       itemNumberWrapper.appendChild(itemNumber);
 
-      // let itemPrice = document.createTextNode(`- Price : ${item.price} - `);
       let itemPrice = document.createTextNode(
-        `- سعر الشراء : ${item.price} - `
+        `- سعر الشراء : ${Number(item.price).toLocaleString()} - `
       );
       let itemPriceWrapper = document.createElement("span");
       itemPriceWrapper.appendChild(itemPrice);
 
       let itemSellPrice = document.createTextNode(
-        `سعر البيع : ${item.sellPrice} - `
+        `سعر البيع : ${Number(item.sellPrice).toLocaleString()} - `
       );
       let itemSellPriceWrapper = document.createElement("span");
       itemSellPriceWrapper.appendChild(itemSellPrice);
 
-      let itemProfit = document.createTextNode(`الربح : ${item.profit}`);
+      let itemProfit = document.createTextNode(`الربح : ${item.profit.toLocaleString()}`);
       let itemProfitWrapper = document.createElement("span");
       itemProfitWrapper.appendChild(itemProfit);
 

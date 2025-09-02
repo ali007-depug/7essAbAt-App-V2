@@ -144,7 +144,7 @@ main {
 .inputsHolder input[type=text]:focus {
   outline: rgba(28, 160, 70, 0.6588235294) solid 0.125rem;
 }
-.inputsHolder input[type=text] {
+.inputsHolder input[type=text], .inputsHolder input[type=number] {
   height: 1.875rem;
   width: 60%;
   direction: rtl;
