@@ -32,6 +32,7 @@ const updateStack = document.querySelector("#updateStack");
 const emptyStackButton = document.querySelector(".btnEmptyStack");
 const clearProfit = document.querySelector("#zero");
 const btnCalc = document.querySelector("#btnCalc");
+const profitAv = document.querySelector("#profitAv")
 
 // ==== select wrappers =====
 const data = document.querySelector(".data");
@@ -60,6 +61,8 @@ const allMoneyIcon = document.querySelector(".allMoeny__eyeIcon");
 // info
 const infoWrapper = document.querySelector(".guideInfo")
 
+
+
 // ===== register the service worker =====
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
@@ -86,6 +89,7 @@ if (getDataFromls("data")) {
 
 // ===== get data from local storage =====
 getDataFromls("data");
+
 
 goodsPriceWrapper.innerHTML = calcAllGoodPrices();
 
@@ -245,6 +249,7 @@ function handelInputs(oldInputs) {
       sellPrice: sellPrice.value.trim(),
       id: Date.now(),
       profit: 0,
+      totalProfit:0,
       clonedNumber: 0,
       soldItem: 0,
     };
@@ -272,6 +277,7 @@ function handelInputs(oldInputs) {
         sellPrice: sellPrice.value.trim(),
         id: Date.now(),
         profit: 0,
+        totalProfit:0,
         clonedNumber: 0,
         soldItem: 0,
       };
@@ -317,6 +323,7 @@ function updateNameIfItsExist(oldInputs, itemName, priceValue) {
           sellPrice: sellPrice.value.trim(),
           id: Date.now(),
           profit: 0,
+          totalProfit:0,
           clonedNumber: 0,
           soldItem: 0,
         };
@@ -369,20 +376,32 @@ function getDataFromls(dataName) {
  */
 function calcAllProfits(oldInputs, message) {
   if (oldInputs) {
-    let res = 0;
-    for (let i = 0; i < oldInputs.length; i++) {
-      res += oldInputs[i].profit;
-    }
+    let allProfit = calcItemsProfit(oldInputs,"profit");
+
     data.innerHTML = "";
     data.style.display = "flex";
     data.classList.add("addBorder");
 
     let span = document.createElement("span");
-    let theProfit = document.createTextNode(`${message} : ${res.toLocaleString()} جنيه سوداني`);
+    let theProfit = document.createTextNode(`${message} : ${allProfit.toLocaleString()} جنيه سوداني`);
     span.appendChild(theProfit);
     data.appendChild(span);
+    // store the all profit to view the average
   } else data.innerHTML = "";
+
 }
+
+
+
+function calcItemsProfit(data,profitType){
+  let allProfit= 0 ;
+  for (let i = 0; i < data.length; i++) {
+    allProfit += data[i][profitType];
+  }
+
+return allProfit;
+}
+
 
 /**
  * ===== event to show profit =====-
@@ -594,6 +613,8 @@ closeSellsButton.onclick = function () {
  * 
  * 5- show some meesages to user 
  * 
+ * 6- calc profit and then add it to LS
+ * 
 */
 updateStack.onclick = function () {
   if (catg.value != "" && number.value != "") {
@@ -650,9 +671,12 @@ function handelProfits(oldInputs) {
           oldInputs[matchIndex].profit +=
             (+oldInputs[matchIndex].sellPrice - +oldInputs[matchIndex].price) *
             +number.value;
+            // also calc the total profit 
+            oldInputs[matchIndex].totalProfit +=
+            (+oldInputs[matchIndex].sellPrice - +oldInputs[matchIndex].price) *
+            +number.value;
           // === assaign sold item prop , to show it in info ===
           oldInputs[matchIndex].soldItem += Number(number.value);
-
           // new update
           arrOfItems = oldInputs;
           emptyInputs(inputs);
@@ -704,7 +728,7 @@ function handelProfits(oldInputs) {
       );
     }
   }
-  // if there is not data on local storage
+  // if there is not data on local sto@@rage
   else {
     data.innerHTML = "";
     data.style.display = "flex";
@@ -807,7 +831,6 @@ function setProfitToZeroPopup() {
         }
         arrOfItems = oldInputs;
         addDataTols("data", arrOfItems);
-
         // show message on data
         data.innerHTML = "";
         data.style.display = "flex";
@@ -1085,6 +1108,39 @@ allMoneyIcon.addEventListener("click", (e) => {
  * ======= Calc module =========
  *
  */
+
+// when click on guide info ==> show floating text
+infoWrapper.addEventListener("click",()=>{
+  const floatingText = document.querySelector(".floatingText");
+  floatingText.classList.toggle("showFloatingText")
+})
+
+// show profit avarage
+profitAv.addEventListener("click",()=>{
+  AddProfitAvarageToPage()
+})
+
+// handle profit avarage
+function AddProfitAvarageToPage(){
+  // gets profit from data
+  const profit = calcItemsProfit(getDataFromls("data"),"profit");
+  data.innerHTML = "";
+  data.style.display = "flex";
+  data.classList.add("addBorder");
+  // create a div wrapper 
+  const wrapper = document.createElement("div");
+  // avarge per day
+  const perDay = document.createElement("p");
+  const perDayValue = (profit / 6).toFixed();
+
+  perDay.appendChild(document.createTextNode(`متوسط الربح اليومي هو : ${perDayValue}`));
+  // perWeek.appendChild(document.createTextNode(`متوسط الربح الاسبوعي هو : ${perWeekValue}`));
+
+  wrapper.appendChild(perDay)
+  // wrapper.appendChild(perWeek)
+  data.appendChild(wrapper)
+}
+
 
 // show and hide calculator
 toggleCalc(btnCalc, calculator);

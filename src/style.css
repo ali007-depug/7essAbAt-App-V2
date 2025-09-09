@@ -155,15 +155,15 @@ main {
   border-radius: 3px;
 }
 .inputsHolder label {
-  font-size: 1.3125rem;
+  font-size: 1rem;
   font-weight: 700;
   color: white;
   width: 150px;
-  text-align: center;
+  text-align: end;
 }
 .inputsHolder label:has(span) {
   display: flex;
-  align-items: center;
+  justify-content: end;
   gap: 0.3125rem;
 }
 @media (max-width: 524px) {
@@ -246,6 +246,12 @@ main {
 .buttons .btnCalc:hover {
   background-color: #31b91e;
 }
+.buttons .profitAv {
+  background-color: rgba(28, 160, 70, 0.337254902);
+}
+.buttons .profitAv:hover {
+  background-color: #31b91e;
+}
 .buttons .btnCalcProfit,
 .buttons .btnHideData,
 .buttons .btnUpdateStack {
@@ -306,22 +312,45 @@ main {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  flex-direction: column;
 }
-.guideInfo i {
+.guideInfo .guideButton {
+  background-color: rgba(0, 255, 255, 0.26);
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  padding-inline: 6px;
+  padding-block: 8px;
+  box-shadow: 1px 1px 3px white;
+  cursor: pointer;
+}
+.guideInfo .guideButton i {
   background-color: rgb(70, 157, 70);
   border-radius: 5px;
   padding-block: 5px;
   padding-inline: 10px;
+  align-self: center;
 }
-.guideInfo p {
+.guideInfo .floatingText {
   color: #f4aeba;
   font-weight: bold;
+  opacity: 0;
+  visibility: hidden;
+  max-height: 0;
   font-size: 1.4375rem;
+  transition: all 0.3s ease-in-out;
 }
-@media (max-width: 524px) {
-  .guideInfo p {
+@media (max-width: 767px) {
+  .guideInfo .floatingText {
     font-size: 1.0625rem;
   }
+}
+.guideInfo .floatingText.showFloatingText {
+  opacity: 1;
+  visibility: visible;
+  max-width: fit-content;
+  max-height: fit-content;
 }
 .guideInfo.showInfo {
   opacity: 1;
